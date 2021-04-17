@@ -7,25 +7,18 @@ public class employeeDAO {
 	}
 
 
-	public static Connection getConnection(){
-	Connection con=null;
-	try{
-		String dbDriver = "com.mysql.cj.jdbc.Driver";
-		String dbURL = "jdbc:mysql://localhost:3306/";
-		// Database name to access
-		String dbName = "swii5?useTimezone=true&serverTimezone=America/Sao_Paulo";
-		String dbUsername = "root";
-		String dbPassword = "root";
-		Class.forName(dbDriver);
-		 con = DriverManager.getConnection(dbURL + dbName, dbUsername, dbPassword); }catch(Exception e){System.out.println(e);}
-		return con;
+	public static Connection getConnection() throws ClassNotFoundException, SQLException{
+	
+		Class.forName("com.mysql.cj.jdbc.Driver");		
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/employees?useTimezone=true&serverTimezone=UTC", "root", "admin");
+		
 	 }
 	
 	public static int save(Employee e){
 	int status=0;
 	 try{
 		Connection con=employeeDAO.getConnection();
-		PreparedStatement ps=con.prepareStatement("insert into user905(name,password,email,country) values (?,?,?,?)");
+		PreparedStatement ps=con.prepareStatement("insert into users(name, password, email, country) values (?,?,?,?)");
 		ps.setString(1,e.getName());
 		ps.setString(2,e.getPassword());
 		ps.setString(3,e.getEmail());
@@ -44,7 +37,7 @@ public class employeeDAO {
 	 try{
 	  Connection con=employeeDAO.getConnection();
 	  PreparedStatement ps=con.prepareStatement(
-	 "update user905 set name=?,password=?,email=?,country=? where id=?");
+	  "update users set name=?, password=?, email=?, country=? where id=?");
 	  ps.setString(1,e.getName());
 	  ps.setString(2,e.getPassword());
 	  ps.setString(3,e.getEmail());
@@ -64,7 +57,7 @@ public class employeeDAO {
 		  int status=0;
 		  try{
 		  Connection con=employeeDAO.getConnection();
-		  PreparedStatement ps=con.prepareStatement("delete from user905 where id=?");
+		  PreparedStatement ps=con.prepareStatement("delete from users where id=?");
 		  ps.setInt(1,id);
 		  status=ps.executeUpdate();
 		  
@@ -76,12 +69,13 @@ public class employeeDAO {
 	  
 	   return status;
 	   }
+	  
 	   public static Employee getEmployeeById(int id){
 		   Employee e = new Employee();
 	  
 	   try{
 		   Connection con=employeeDAO.getConnection();
-		   PreparedStatement ps=con.prepareStatement("select * from user905 where id=?");
+		   PreparedStatement ps=con.prepareStatement("select * from users where id=?");
 		   ps.setInt(1,id);
 		   ResultSet rs=ps.executeQuery();
 		   if(rs.next()){
@@ -99,12 +93,13 @@ public class employeeDAO {
 	  
 	   return e;
 	   }
+	   
 	   public static List<Employee> getAllEmployees(){
 	   List<Employee> list= new ArrayList<Employee>();
 	  
 	   try{
 		   Connection con=employeeDAO.getConnection();
-		   PreparedStatement ps=con.prepareStatement("select * from user905");
+		   PreparedStatement ps=con.prepareStatement("select * from users");
 		   ResultSet rs=ps.executeQuery();
 		   while(rs.next()){
 			   Employee e = new Employee();

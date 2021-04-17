@@ -20,7 +20,7 @@
       	New employee
       </h1>
 
-      <form action="#">
+      <form action="CreateServlet" method="POST">
         <div class="input-container">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
 
-          <input type="text" id="name" placeholder="Name" />
+          <input type="text" id="name" name="name" placeholder="Name" />
         </div>
 
         <div class="input-container">
@@ -56,7 +56,7 @@
             <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
           </svg>
 
-          <input type="email" id="email" placeholder="E-mail" />
+          <input type="email" name="email" id="email" placeholder="E-mail" />
         </div>
 
         <div class="input-container" data-error="true">
@@ -76,7 +76,7 @@
             <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
           </svg>
 
-          <input type="password" id="password" placeholder="Password" />
+          <input type="password" id="password" name="password" placeholder="Password" />
         </div>
 
         <div class="input-container" data-error="true">
@@ -96,13 +96,13 @@
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
 
-          <select name="select" id="state">
+          <select name="country" id="state" >
             <option value="value_01">Value 01</option>
           </select>
         </div>
 
         <div class="form-footer">
-          <button type="reset" class="secondary">List Employees</button>
+          <button type="reset" class="secondary">Reset</button>
           <button type="submit" class="primary">Confirm</button>
         </div>
       </form>
@@ -138,6 +138,6 @@
           </svg>
         </a>
       </div>
-    </nav>
+    </nav>  
   </body>
 </html>
