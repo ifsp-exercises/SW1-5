@@ -25,7 +25,7 @@ public class CreateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//doGet(request, response);
 		response.setContentType("text/html");
-		PrintWriter out=response.getWriter();
+		PrintWriter out = response.getWriter();
 		
 		 String name = request.getParameter("name");
 		 String password = request.getParameter("password");
@@ -48,8 +48,6 @@ public class CreateServlet extends HttpServlet {
 			 		"  	}\r\n" + 
 			 		"  	redirect()\r\n" + 
 			 		"  </script></body>");
-			 //request.getRequestDispatcher("index.html").include(request, response);
-			// response.sendRedirect("http://localhost:8080/TP-01/"); 
 			 
 		 }
 		 else{
