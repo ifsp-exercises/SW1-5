@@ -1,3 +1,5 @@
+const app_url = 'http://localhost:8888/employee-manager';
+
 /**
  * Elements names
  */
@@ -35,4 +37,8 @@ async function loadCountries() {
   });
 
   localStorage.setItem(localStorageKeys.countries, JSON.stringify(countries));
+}
+
+function handleError(error) {
+  console.warn('Error', error);
 }

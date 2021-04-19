@@ -11,7 +11,7 @@ async function start() {
 function addFormEvents() {
   employeeForm = document.querySelector(`[name=${elements.employeeForm}]`);
 
-  employeeForm.addEventListener('submit', (event) => {
+  employeeForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const employeeData = Array.from(
@@ -23,6 +23,22 @@ function addFormEvents() {
 
     employeeData['country'] = document
       .querySelector(`[name=${elements.selectCountry}]`).value;
+
+    try {
+      const response = await fetch(`${app_url}/save-employee`, {
+        method: 'POST',
+        body: JSON.stringify(employeeData),
+      });
+
+      const data = await response.json();
+
+      if (!data.success) throw data;
+
+      toastr.success(data.message, 'Success');
+    } catch (error) {
+      handleError(error);
+
+      toastr.error(error.message, 'Error');
+    }
   });
 }
-

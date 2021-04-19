@@ -1,40 +1,46 @@
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import com.google.gson.Gson;
+import org.apache.commons.io.IOUtils;
 
-import Entities.EmployeeEntity;
-
+import Entities.*;
 import DAO.EmployeeDAO;
 
 public class ActionCreateEmployeeServlet extends HttpServlet {
+  private Gson _jsonHandler;
+
+  public ActionCreateEmployeeServlet() {
+    super();
+    this._jsonHandler = new Gson();
+  }
+
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    doGet(request, response);
-    response.setContentType("text/html");
-    PrintWriter out = response.getWriter();
+    response.setContentType("application/json");
+    response.setCharacterEncoding("UTF-8");
 
-    String name = request.getParameter("name");
-    String password = request.getParameter("password");
-    String email = request.getParameter("email");
-    String country = request.getParameter("country");
+    ResponseResult result;
 
-    EmployeeEntity employee = new EmployeeEntity();
+    try {
+      String requestBody = IOUtils.toString(request.getReader());
+      EmployeeEntity employee = this._jsonHandler.fromJson(requestBody, EmployeeEntity.class);
 
-    employee.setName(name);
-    employee.setPassword(password);
-    employee.setEmail(email);
-    employee.setCountry(country);
+      boolean savedSuccessfully = EmployeeDAO.save(employee) > 0;
 
-    int status = EmployeeDAO.save(employee);
+      String message;
 
-    if (status > 0) {
-      out.print("<body><script type=\"text/javascript\">\r\n" + " function redirect(){ \r\n"
-          + " alert(\"Record saved successfully!\");\r\n"
-          + " window.location.replace(\"http://localhost:8080/TP-01/\");\r\n" + " \r\n" + " }\r\n" + " redirect()\r\n"
-          + " </script></body>");
+      if (savedSuccessfully)
+        message = "New employee added successfully.";
+      else
+        message = "An error occurred while saving employee.";
 
-    } else {
-      out.print("<body> <script type=\"text/javascript\"> alert(\"Sorry! unable to save record!\")</script> </body>");
+      result = new ResponseResult(savedSuccessfully, message, new Object());
+    } catch (Exception exception) {
+      result = new ResponseResult(false, exception.getMessage(), exception);
     }
-    out.close();
+
+    PrintWriter printWritter = response.getWriter();
+    printWritter.write(this._jsonHandler.toJson(result));
+    printWritter.flush();
   }
 }
