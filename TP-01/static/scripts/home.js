@@ -35,6 +35,8 @@ function addFormEvents() {
       if (!data.success) throw data;
 
       toastr.success(data.message, 'Success');
+
+      document.querySelector('button[type=reset]')?.click();
     } catch (error) {
       handleError(error);
 
