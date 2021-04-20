@@ -6,7 +6,9 @@ The `mysql:8.0.24` and `tomcat:9.0` are required and will be downloaded automati
 
 # 💻 How to develop
 
-To develop new features or make some experiments, just run `docker-compose up`, and then every change made in `./` will be reflected inside the containers.
+To develop new features or make some experiments, just run `docker-compose up --build`, and then every change made in `./` will be reflected inside the containers.
+
+Attention, `--build` flag is only necessary at the first execution, after that you can simply run `docker-compose up`.
 
 ## 📝 License
 
