@@ -2,9 +2,11 @@ document.addEventListener("DOMContentLoaded", start);
 
 let editModal;
 let employees = [];
+let employeeList = null;
 let currentEmployeeID = null;
 
 async function start() {
+  employeeList = document.querySelector('.employee-list');
   editModal = document.querySelector(`[name=${elements.editModal}]`)
   employeeForm = document.querySelector(`[name=${elements.employeeForm}]`);
 
@@ -20,6 +22,8 @@ async function start() {
 }
 
 async function loadEmployees() {
+  employeeList.style.display = 'none';
+
   const response = await fetch(`${app_url}/get-employees`, {
     method: 'GET',
   });
@@ -121,6 +125,8 @@ function fillEmployeeList() {
 
     employeeListBody.appendChild(tr);
   })
+
+  if (employees.length) employeeList.style.display = '';
 }
 
 async function handleFormSubmit(event) {
