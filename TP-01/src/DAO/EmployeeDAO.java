@@ -14,8 +14,8 @@ public class EmployeeDAO {
   public static Connection getConnection() throws ClassNotFoundException, SQLException {
 
     Class.forName("com.mysql.cj.jdbc.Driver");
-    return DriverManager.getConnection("jdbc:mysql://localhost:3306/employees?useTimezone=true&serverTimezone=UTC",
-        "root", "admin");
+    return DriverManager.getConnection("jdbc:mysql://db:3306/employees?useTimezone=true&serverTimezone=UTC", "root",
+        "DockerMySql127!");
 
   }
 
