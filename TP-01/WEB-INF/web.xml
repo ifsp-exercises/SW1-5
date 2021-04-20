@@ -43,8 +43,8 @@
   </servlet>
 
   <servlet>
-    <servlet-name>ActionReadEmployeeServlet</servlet-name>
-    <servlet-class>ActionReadEmployeeServlet</servlet-class>
+    <servlet-name>ActionListEmployeesServlet</servlet-name>
+    <servlet-class>ActionListEmployeesServlet</servlet-class>
   </servlet>
 
   <servlet>
@@ -98,8 +98,8 @@
   </servlet-mapping>
 
   <servlet-mapping>
-    <servlet-name>ActionReadEmployeeServlet</servlet-name>
-    <url-pattern>/get-employee</url-pattern>
+    <servlet-name>ActionListEmployeesServlet</servlet-name>
+    <url-pattern>/get-employees</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
