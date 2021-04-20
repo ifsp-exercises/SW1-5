@@ -2,3 +2,4 @@
 
 **/*.class
 copy-source.sh
+.project
