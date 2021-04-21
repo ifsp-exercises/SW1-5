@@ -1,0 +1,110 @@
+<web-app>
+
+  <!--  -->
+  <!-- Servlet registry -->
+  <!--  -->
+
+  <!-- Pages -->
+  <servlet>
+    <servlet-name>PageWelcomeServlet</servlet-name>
+    <servlet-class>PageWelcomeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>PageHomeServlet</servlet-name>
+    <servlet-class>PageHomeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>PageListEmployeeServlet</servlet-name>
+    <servlet-class>PageListEmployeeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>PageAuthorsServlet</servlet-name>
+    <servlet-class>PageAuthorsServlet</servlet-class>
+  </servlet>
+
+  <!-- Data -->
+  <servlet>
+    <servlet-name>ActionFetchExampleDataServlet</servlet-name>
+    <servlet-class>ActionFetchExampleDataServlet</servlet-class>
+  </servlet>
+
+  <!-- Actions -->
+  <servlet>
+    <servlet-name>ActionCreateEmployeeServlet</servlet-name>
+    <servlet-class>ActionCreateEmployeeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ActionDeleteEmployeeServlet</servlet-name>
+    <servlet-class>ActionDeleteEmployeeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ActionListEmployeesServlet</servlet-name>
+    <servlet-class>ActionListEmployeesServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ActionUpdateEmployeeServlet</servlet-name>
+    <servlet-class>ActionUpdateEmployeeServlet</servlet-class>
+  </servlet>
+
+
+
+
+  <!--  -->
+  <!-- Route mapping -->
+  <!--  -->
+
+  <!-- Pages -->
+  <servlet-mapping>
+    <servlet-name>PageWelcomeServlet</servlet-name>
+    <url-pattern>/welcome</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PageHomeServlet</servlet-name>
+    <url-pattern></url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PageListEmployeeServlet</servlet-name>
+    <url-pattern>/list-employees</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PageAuthorsServlet</servlet-name>
+    <url-pattern>/authors</url-pattern>
+  </servlet-mapping>
+
+  <!-- Data -->
+  <servlet-mapping>
+    <servlet-name>ActionFetchExampleDataServlet</servlet-name>
+    <url-pattern>/example-data</url-pattern>
+  </servlet-mapping>
+
+  <!-- Actions -->
+  <servlet-mapping>
+    <servlet-name>ActionCreateEmployeeServlet</servlet-name>
+    <url-pattern>/save-employee</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ActionDeleteEmployeeServlet</servlet-name>
+    <url-pattern>/delete-employee</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ActionListEmployeesServlet</servlet-name>
+    <url-pattern>/get-employees</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ActionUpdateEmployeeServlet</servlet-name>
+    <url-pattern>/update-employee</url-pattern>
+  </servlet-mapping>
+
+</web-app>

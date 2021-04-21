@@ -1,0 +1,23 @@
+services:
+  db:
+    image: mysql:8.0.24
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: DockerMySql127!
+      MYSQL_DATABASE: employees
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: DockerMySql127!
+    ports:
+      - 3306:3306
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+
+  tomcat-server:
+    build: .
+    volumes:
+      - ./:/usr/local/tomcat/webapps/employee-manager
+      - /usr/local/tomcat/webapps/employee-manager/WEB-INF/classes
+    ports:
+      - "8888:8080"
+    depends_on:
+      - db

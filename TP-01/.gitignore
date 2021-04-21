@@ -1,1 +1,5 @@
-/build/
+.vscode/
+
+**/*.class
+copy-source.sh
+.project
