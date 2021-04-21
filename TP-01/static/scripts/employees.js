@@ -12,13 +12,13 @@ async function start() {
 
   employeeForm.addEventListener('submit', handleFormSubmit);
 
-  await loadEmployees();
+  loadEmployees().then(() => {
+    addActionsEvents();
+    fillEmployeeList();
+  });
 
-  addActionsEvents();
-
-  await loadCountries();
-
-  fillEmployeeList();
+  loadCountries();
+  addRemoveErrorsOnFocus();
 }
 
 async function loadEmployees() {
@@ -132,6 +132,15 @@ function fillEmployeeList() {
 async function handleFormSubmit(event) {
   event.preventDefault();
 
+  const inputs = Array.from(
+    employeeForm.querySelectorAll('input')
+  );
+
+  const formIsValid = validateEmployeeForm(inputs);
+
+  if (!formIsValid)
+    return toastr.error('Please, fix the highlighted errors', 'Error');
+
   const employeeData = Array.from(
     event.currentTarget.querySelectorAll('input')
   ).reduce((accumulatedData, currentInput) => ({
@@ -166,6 +175,4 @@ async function handleFormSubmit(event) {
 
     toastr.error(error.message, 'Error');
   }
-
-  console.log(employeeData)
 }

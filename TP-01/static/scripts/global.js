@@ -83,3 +83,45 @@ async function loadCountries() {
 function handleError(error) {
   console.warn('Error', error);
 }
+
+function validateEmail(email) {
+  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  return re.test(String(email).toLowerCase());
+}
+
+function addRemoveErrorsOnFocus() {
+  Array.from(
+    employeeForm.querySelectorAll('input')
+  )
+    .forEach(input => input.addEventListener('focus', (event) => {
+      event.currentTarget.parentElement.dataset['error'] = false;
+    }));
+}
+
+function validateEmployeeForm(inputs) {
+  let formIsValid = true;
+
+  inputs.forEach((input) => {
+    let invalid = false;
+
+    switch (input.name) {
+      case 'name':
+      case 'password':
+        invalid = !input.value?.trim();
+        break;
+
+      case 'email':
+        invalid = !validateEmail(input.value);
+        break;
+    }
+
+    input.parentElement.dataset['error'] = invalid;
+
+    if (invalid)
+      formIsValid = false;
+  });
+
+  return formIsValid;
+}
+

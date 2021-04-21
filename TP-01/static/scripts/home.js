@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", start);
 let employeeForm;
 
 async function start() {
-  await loadCountries();
-
+  loadCountries();
   addFormEvents();
+  addRemoveErrorsOnFocus();
 }
 
 function addFormEvents() {
@@ -14,9 +14,16 @@ function addFormEvents() {
   employeeForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const employeeData = Array.from(
+    const inputs = Array.from(
       employeeForm.querySelectorAll('input')
-    ).reduce((accumulatedData, currentInput) => ({
+    );
+
+    const formIsValid = validateEmployeeForm(inputs);
+
+    if (!formIsValid)
+      return toastr.error('Please, fix the highlighted errors', 'Error');
+
+    const employeeData = inputs.reduce((accumulatedData, currentInput) => ({
       ...accumulatedData,
       [currentInput.name]: currentInput.value
     }), {});
