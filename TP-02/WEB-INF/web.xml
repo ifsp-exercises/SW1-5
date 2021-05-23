@@ -1,0 +1,110 @@
+<web-app>
+
+  <!--  -->
+  <!-- Servlet registry -->
+  <!--  -->
+
+  <!-- Pages -->
+  <servlet>
+    <servlet-name>PageWelcomeServlet</servlet-name>
+    <servlet-class>PageWelcomeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>PageHomeServlet</servlet-name>
+    <servlet-class>PageHomeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>PageListProdutosServlet</servlet-name>
+    <servlet-class>PageListProdutosServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>PageAuthorsServlet</servlet-name>
+    <servlet-class>PageAuthorsServlet</servlet-class>
+  </servlet>
+
+  <!-- Data -->
+  <servlet>
+    <servlet-name>ActionFetchExampleDataServlet</servlet-name>
+    <servlet-class>ActionFetchExampleDataServlet</servlet-class>
+  </servlet>
+
+  <!-- Actions -->
+  <servlet>
+    <servlet-name>ActionCreateProdutoServlet</servlet-name>
+    <servlet-class>ActionCreateProdutoServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ActionDeleteProdutoServlet</servlet-name>
+    <servlet-class>ActionDeleteProdutoServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ActionListProdutosServlet</servlet-name>
+    <servlet-class>ActionListProdutosServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ActionUpdateProdutoServlet</servlet-name>
+    <servlet-class>ActionUpdateProdutoServlet</servlet-class>
+  </servlet>
+
+
+
+
+  <!--  -->
+  <!-- Route mapping -->
+  <!--  -->
+
+  <!-- Pages -->
+  <servlet-mapping>
+    <servlet-name>PageWelcomeServlet</servlet-name>
+    <url-pattern>/welcome</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PageHomeServlet</servlet-name>
+    <url-pattern></url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PageListProdutosServlet</servlet-name>
+    <url-pattern>/list-produtos</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PageAuthorsServlet</servlet-name>
+    <url-pattern>/authors</url-pattern>
+  </servlet-mapping>
+
+  <!-- Data -->
+  <servlet-mapping>
+    <servlet-name>ActionFetchExampleDataServlet</servlet-name>
+    <url-pattern>/example-data</url-pattern>
+  </servlet-mapping>
+
+  <!-- Actions -->
+  <servlet-mapping>
+    <servlet-name>ActionCreateProdutoServlet</servlet-name>
+    <url-pattern>/save-produto</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ActionDeleteProdutoServlet</servlet-name>
+    <url-pattern>/delete-produto</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ActionListProdutosServlet</servlet-name>
+    <url-pattern>/get-produtos</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ActionUpdateProdutoServlet</servlet-name>
+    <url-pattern>/update-produto</url-pattern>
+  </servlet-mapping>
+
+</web-app>

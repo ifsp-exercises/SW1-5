@@ -1,0 +1,436 @@
+:root {
+  --red: #ab2626;
+
+  --text: #dae8eb;
+  --text-secondary: #b5bdbf;
+
+  --primary: #e84545;
+  --secondary: #903749;
+
+  --background: #191b2d;
+  --background-secondary: #25273e;
+
+  font-size: 60%;
+}
+
+.debug {
+  border: solid 1px red;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+
+  /* padding: 0 2rem; */
+
+  background-color: var(--background);
+}
+
+body,
+input,
+select,
+button,
+textarea {
+  color: var(--text);
+  font-size: 1.6rem;
+  font-family: "Raleway", sans-serif;
+}
+
+@keyframes appear-from-hidden {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes appear-from-left {
+  from {
+    margin-left: -100%;
+  }
+
+  to {
+    margin-left: 0%;
+  }
+}
+
+@keyframes smooth-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  80% {
+    transform: rotate(200deg);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes smooth-spin-reverse {
+  0% {
+    transform: rotate(180deg);
+  }
+
+  80% {
+    transform: rotate(-20deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+[class^="icon-"] {
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.navbar {
+  height: 100%;
+  /* height: 8rem; */
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 3rem 1rem;
+}
+
+.navbar a {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 100%;
+
+  animation: appear-from-hidden 1s linear;
+}
+
+.navbar .github-logo {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 100%;
+
+  background-image: url('../images/logo-github-light.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  animation: smooth-spin-reverse 0.5s ease-out 0s;
+
+  transition: box-shadow 0.25s ease-in;
+}
+
+.navbar .github-logo:hover {
+  animation: smooth-spin 0.5s;
+  transform: rotate(180deg);
+}
+
+.navbar > div > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  border-radius: 100%;
+
+  color: var(--text);
+
+  transition: transform 0.25s ease;
+}
+
+.navbar > div > a + a {
+  margin-top: 1rem;
+}
+
+.navbar > div > a:hover {
+  transform: scale(1.25);
+}
+
+.navbar > div > a svg {
+  width: 36px;
+  height: 36px;
+}
+
+.container {
+  flex: 1;
+
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 6rem auto 2rem auto;
+}
+
+.container > h1 {
+  animation: appear-from-left 0.5s ease-out, appear-from-hidden 2s ease-in-out;
+}
+
+.form {
+  padding: 2rem;
+  margin: 4rem auto;
+
+  width: 100%;
+  max-width: 600px;
+
+  background-color: var(--background);
+
+  border-radius: 0.4rem;
+  box-shadow: 0px 8px 8px 2px rgba(0, 0, 0, 0.1);
+
+  animation: appear-from-hidden 1s ease-in-out;
+}
+
+.input-container {
+  width: 100%;
+  height: 6rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: solid 1px var(--background);
+  padding: 0.8rem;
+
+  border-radius: 0.4rem;
+  background-color: var(--background-secondary);
+
+  transition: border-color 0.5s;
+}
+
+.input-container + .input-container {
+  margin-top: 2rem;
+}
+
+.input-container > svg {
+  width: 2.8rem;
+  height: 2.8rem;
+
+  margin: 0 1.4rem;
+
+  stroke: var(--text-secondary);
+}
+
+.input-container > input,
+.input-container > select {
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  background-color: transparent;
+  outline-color: var(--background);
+
+  padding: 1rem;
+}
+
+.input-container > select option {
+  background-color: var(--background-secondary);
+}
+
+.input-container[data-error="true"] {
+  border-color: var(--red);
+}
+
+.form-footer {
+  margin: 2rem 0;
+
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 2fr;
+}
+
+.form-footer button {
+  height: 4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  font-size: 2rem;
+  font-weight: 700;
+
+  border: 0;
+  border-radius: 0.4rem;
+
+  transition: filter 0.25s ease-in;
+}
+
+.form-footer button:hover {
+  filter: brightness(75%);
+}
+
+.form-footer button.primary {
+  background-color: var(--primary);
+}
+
+.form-footer button.secondary {
+  background-color: var(--secondary);
+}
+
+.authors-container {
+  margin: 4rem 0;
+}
+
+.author {
+  color: inherit;
+  text-decoration: none;
+
+  width: 100%;
+
+  padding: 3rem;
+
+  border-radius: 0.4rem;
+  background-color: var(--background-secondary);
+
+  display: flex;
+  align-items: center;
+
+  transition: all 0.5s ease;
+  transition-property: box-shadow transform;
+}
+
+.author + .author {
+  margin-top: 2rem;
+}
+
+.author:hover {
+  transform: translate3d(10px, 0, 0) scale(1.01);
+  box-shadow: 0px 0px 60px 8px rgba(0, 0, 0, 0.1);
+}
+
+.author .photo {
+  width: 80px;
+  min-width: 64px;
+
+  height: 80px;
+  min-height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 100%;
+  background-color: #191b2d;
+  border: solid 2px var(--secondary);
+
+  overflow: hidden;
+
+  background-image: url("assets/svg/help-circle.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+}
+
+.author .photo img {
+  width: 100%;
+  height: 100%;
+}
+
+.author .info {
+  margin-left: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.author .info strong {
+  display: block;
+}
+
+.author .info span {
+  margin-top: 0.6rem;
+}
+
+.author > svg {
+  margin-left: auto;
+}
+
+.produto-list {
+  margin: 4rem 0;
+  width: 100%;
+
+  border-collapse: separate;
+  border-spacing: 0 1rem;
+
+  animation: appear-from-hidden 1s linear;
+}
+
+.produto-list tbody:before {
+  content: "@";
+  color: transparent;
+  line-height: 2rem;
+}
+
+.produto-list td {
+  background-color: var(--background-secondary);
+}
+
+.produto-list th,
+.produto-list td {
+  padding: 1rem;
+  text-align: left;
+}
+
+.produto-list td:first-child {
+  border-radius: 0.4rem 0 0 0.4rem;
+}
+
+.produto-list td:last-child {
+  border-radius: 0 0.4rem 0.4rem 0;
+}
+
+.produto-list th:last-child,
+.produto-list td:last-child {
+  text-align: right;
+}
+
+.produto-actions > button {
+  cursor: pointer;
+
+  border: 0;
+  background-color: transparent;
+
+  transition: transform 0.25s;
+}
+
+.produto-actions > button:hover {
+  transform: scale(1.1);
+}
+
+.produto-actions > button + button {
+  margin-left: 0.4rem;
+}
+
+.edit-modal {
+  position: absolute;
+
+  display: none;
+  width: 100%;
+  height: 100%;
+
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0.5),
+    var(--background-secondary)
+  );
+}
