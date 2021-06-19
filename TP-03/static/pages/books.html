@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>SWI | 5 - TP 02 - books</title>
+
+    <link rel="stylesheet" href="./static/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div>
+        <a href="/book-store">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-arrow-left"
+          >
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </a>
+      </div>
+    </nav>
+
+    <main class="container">
+      <h1>books</h1>
+
+      <table class="book-list">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Preço</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </main>
+
+    <nav class="navbar">
+      <a
+        title="Show me the code 🙃"
+        href="https://github.com/ifsp-exercises/SW1-5/tree/master/TP-02"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="github-logo"></div>
+      </a>
+
+      <div class="navbar-bottom-group">
+        <a href="./authors">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-star"
+          >
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+            ></polygon>
+          </svg>
+        </a>
+      </div>
+    </nav>
+
+    <div class="edit-modal" name="edit-modal">
+      <form name="book-form" class="form">
+        <div class="input-container">
+          <input type="text" name="title" placeholder="Título" />
+        </div>
+
+        <div class="input-container">
+          <input type="text" name="author" placeholder="Autor" />
+        </div>
+
+        <div class="input-container">
+          <input type="number" name="price" placeholder="Preço" />
+        </div>
+
+        <div class="form-footer">
+          <button name="cancel-edit-button" type="button" class="secondary">
+            Cancel
+          </button>
+          <button type="submit" class="primary">Update</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="./static/scripts/global.js"></script>
+    <script src="./static/scripts/books.js"></script>
+    <script src="./static/lib/toastr/toastr.min.js"></script>
+
+    <link rel="stylesheet" href="./static/lib/toastr/toastr.min.css" />
+  </body>
+</html>

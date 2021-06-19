@@ -1,0 +1,110 @@
+<web-app>
+
+  <!--  -->
+  <!-- Servlet registry -->
+  <!--  -->
+
+  <!-- Pages -->
+  <servlet>
+    <servlet-name>PageWelcomeServlet</servlet-name>
+    <servlet-class>PageWelcomeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>PageHomeServlet</servlet-name>
+    <servlet-class>PageHomeServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>PageListBooksServlet</servlet-name>
+    <servlet-class>PageListBooksServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>PageAuthorsServlet</servlet-name>
+    <servlet-class>PageAuthorsServlet</servlet-class>
+  </servlet>
+
+  <!-- Data -->
+  <servlet>
+    <servlet-name>ActionFetchExampleDataServlet</servlet-name>
+    <servlet-class>ActionFetchExampleDataServlet</servlet-class>
+  </servlet>
+
+  <!-- Actions -->
+  <servlet>
+    <servlet-name>ActionCreateBookServlet</servlet-name>
+    <servlet-class>ActionCreateBookServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ActionDeleteBookServlet</servlet-name>
+    <servlet-class>ActionDeleteBookServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ActionListBooksServlet</servlet-name>
+    <servlet-class>ActionListBooksServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ActionUpdateBookServlet</servlet-name>
+    <servlet-class>ActionUpdateBookServlet</servlet-class>
+  </servlet>
+
+
+
+
+  <!--  -->
+  <!-- Route mapping -->
+  <!--  -->
+
+  <!-- Pages -->
+  <servlet-mapping>
+    <servlet-name>PageWelcomeServlet</servlet-name>
+    <url-pattern>/welcome</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PageHomeServlet</servlet-name>
+    <url-pattern></url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PageListBooksServlet</servlet-name>
+    <url-pattern>/list-books</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PageAuthorsServlet</servlet-name>
+    <url-pattern>/authors</url-pattern>
+  </servlet-mapping>
+
+  <!-- Data -->
+  <servlet-mapping>
+    <servlet-name>ActionFetchExampleDataServlet</servlet-name>
+    <url-pattern>/example-data</url-pattern>
+  </servlet-mapping>
+
+  <!-- Actions -->
+  <servlet-mapping>
+    <servlet-name>ActionCreateBookServlet</servlet-name>
+    <url-pattern>/save-book</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ActionDeleteBookServlet</servlet-name>
+    <url-pattern>/delete-book</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ActionListBooksServlet</servlet-name>
+    <url-pattern>/get-books</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ActionUpdateBookServlet</servlet-name>
+    <url-pattern>/update-book</url-pattern>
+  </servlet-mapping>
+
+</web-app>
